@@ -6,9 +6,13 @@ public class PlayerController : MonoBehaviour
     // Movement speed for player
     public float movementSpeed;
 
+	// Player animator
+	private Animator movementAnimator;
+
     // Use this for initialization
     void Start () {
-
+		// Get player animator
+		movementAnimator = GetComponent<Animator>();
     }
 	
     // Update is called once per frame
@@ -37,5 +41,9 @@ public class PlayerController : MonoBehaviour
                 0f
 			));
         }
+
+		// Update animator
+		movementAnimator.SetFloat("MovementX", horizontalAxis);
+		movementAnimator.SetFloat("MovementY", verticalAxis);
     }
 }
